@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact ToolKaro | ToolKaro</title>
+<meta name="description" content="Contact ToolKaro — suggestions, corrections and new tool requests.">
+<link rel="canonical" href="https://toolkaro.github.io/contact.html">
+<meta property="og:title" content="Contact ToolKaro | ToolKaro">
+<meta property="og:description" content="Contact ToolKaro — suggestions, corrections and new tool requests.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">ToolKaro<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap"><div class="crumbs"><a href="/">Home</a> › Contact</div><h1 class="page">Contact ToolKaro</h1><div class="panel prose"><p>We read every message. Use the contact route below for:</p>
+ <ul><li>A tool you wish existed — most of our new tools come from requests</li>
+ <li>A wrong result or a bug you spotted</li>
+ <li>Business or advertising questions</li></ul>
+ <h2>Reach us</h2>
+ <p>Email: <b>contact@toolkaro.com</b> (placeholder — will be activated with the domain).</p>
+ <p class="small">Note: because all tools run in your browser, we never receive your files — please do not email photos or documents; describe the issue instead.</p></div></div>
+<footer class="site">
+<p><b style="color:#fff">ToolKaro</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+</footer>
+<script></script>
+</body>
+</html>

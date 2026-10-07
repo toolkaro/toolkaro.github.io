@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Difference Calculator | ToolKaro</title>
+<meta name="description" content="Free date difference calculator. Find the number of days, weeks, months and years between two dates — for deadlines, visas, projects and planning.">
+<link rel="canonical" href="https://toolkaro.github.io/date-difference-calculator.html">
+<meta property="og:title" content="Date Difference Calculator | ToolKaro">
+<meta property="og:description" content="Free date difference calculator. Find the number of days, weeks, months and years between two dates — for deadlines, visas, projects and planning.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Date Difference Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/date-difference-calculator.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it include both the start and end day?", "acceptedAnswer": {"@type": "Answer", "text": "The count is the exact number of full days between the two dates \u2014 the standard method used by forms and contracts."}}, {"@type": "Question", "name": "What if I enter the dates in the wrong order?", "acceptedAnswer": {"@type": "Answer", "text": "No problem \u2014 the calculator automatically treats the earlier date as the start."}}, {"@type": "Question", "name": "Can I count days until a future date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Put today as the start date and the future date as the end date."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, free and unlimited."}}]}</script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">ToolKaro<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › Date Difference Calculator</div><h1 class="page">Date Difference Calculator — days between dates</h1><p class="sub">Deadlines, visa validity, project timelines — counted exactly.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Start date</label>
+ <input type="date" id="d1">
+ <label>End date</label>
+ <input type="date" id="d2">
+ <button class="btn" onclick="calcDiff()">Calculate Difference</button>
+ <div class="result" id="res"></div>
+ </div><div class="panel prose">
+ <h2>Common uses</h2>
+ <ul><li>How many days are left on a visa, warranty or subscription</li><li>Days between an application date and a deadline</li><li>Project timelines and payment schedules</li><li>Exact age-style spans (for age itself, use our <a href="/age-calculator.html">Age Calculator</a>)</li></ul>
+ <h2>How it counts</h2>
+ <p>The result shows the full span in years, months and days (the way people naturally read it) and also the exact total in days and weeks — the way forms and contracts count it.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: Does it include both the start and end day?</b><p>The count is the exact number of full days between the two dates — the standard method used by forms and contracts.</p></div><div class="faq"><b>Q: What if I enter the dates in the wrong order?</b><p>No problem — the calculator automatically treats the earlier date as the start.</p></div><div class="faq"><b>Q: Can I count days until a future date?</b><p>Yes. Put today as the start date and the future date as the end date.</p></div><div class="faq"><b>Q: Is it free?</b><p>Yes, free and unlimited.</p></div></div><h2 style="color:var(--dark);margin:6px 0 12px">More Free Tools</h2><div class="rel"><a class="tool-card" href="/age-calculator.html"><div class="ic">🎂</div><h3>Age Calculator</h3><p>Find your exact age in years, months and days — plus total days lived and your next birthday.</p></a><a class="tool-card" href="/compress-image-to-kb.html"><div class="ic">🗜️</div><h3>Compress Image to KB</h3><p>Reduce any photo to an exact size — 20KB, 50KB, 100KB or 200KB — perfect for online forms.</p></a><a class="tool-card" href="/image-compressor.html"><div class="ic">🖼️</div><h3>Image Compressor</h3><p>Make any image file smaller without losing visible quality — free, instant, private.</p></a><a class="tool-card" href="/passport-size-photo-maker.html"><div class="ic">🪪</div><h3>Passport Size Photo Maker</h3><p>Turn any photo into a passport-size photo (35×45mm) at the exact KB size forms ask for.</p></a></div></div>
+<footer class="site">
+<p><b style="color:#fff">ToolKaro</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+</footer>
+<script>
+ function calcDiff(){
+   const res=document.getElementById('res');
+   const v1=document.getElementById('d1').value, v2=document.getElementById('d2').value;
+   if(!v1||!v2){res.className='result show';res.innerHTML='Please select both dates.';return;}
+   let a=new Date(v1+'T00:00:00'), b=new Date(v2+'T00:00:00');
+   if(a>b){const t=a;a=b;b=t;}
+   const days=Math.round((b-a)/86400000);
+   let y=b.getFullYear()-a.getFullYear(),m=b.getMonth()-a.getMonth(),d=b.getDate()-a.getDate();
+   if(d<0){m--;d+=new Date(b.getFullYear(),b.getMonth(),0).getDate();}
+   if(m<0){y--;m+=12;}
+   res.className='result show';
+   res.innerHTML='<div class="big">'+days.toLocaleString()+' days</div><table>'+
+   '<tr><td>In years / months / days</td><td>'+y+'y '+m+'m '+d+'d</td></tr>'+
+   '<tr><td>Total weeks</td><td>'+(days/7).toFixed(1)+'</td></tr>'+
+   '<tr><td>Total months (approx.)</td><td>'+(days/30.44).toFixed(1)+'</td></tr></table>';}
+ </script>
+</body>
+</html>

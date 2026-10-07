@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://toolkaro.github.io/sitemap.xml

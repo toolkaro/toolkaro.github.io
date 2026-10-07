@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator | ToolKaro</title>
+<meta name="description" content="Free QR code generator. Turn any website link, text, phone or WhatsApp number into a QR code and download it as a high-quality PNG image.">
+<link rel="canonical" href="https://toolkaro.github.io/qr-code-generator.html">
+<meta property="og:title" content="QR Code Generator | ToolKaro">
+<meta property="og:description" content="Free QR code generator. Turn any website link, text, phone or WhatsApp number into a QR code and download it as a high-quality PNG image.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "QR Code Generator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/qr-code-generator.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do QR codes from here expire?", "acceptedAnswer": {"@type": "Answer", "text": "No. The code contains your text directly, so it works forever and has no watermark or tracking."}}, {"@type": "Question", "name": "How do I make a QR code for WhatsApp?", "acceptedAnswer": {"@type": "Answer", "text": "Type your WhatsApp link \u2014 https://wa.me/ followed by your number with country code (for example https://wa.me/923001234567) \u2014 and generate."}}, {"@type": "Question", "name": "What size should I choose?", "acceptedAnswer": {"@type": "Answer", "text": "Use Medium for screens and sharing, and Large (1024px) for printing posters, banners and shop boards."}}, {"@type": "Question", "name": "Is it free for business use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 free for personal and business use, unlimited."}}]}</script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">ToolKaro<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › QR Code Generator</div><h1 class="page">QR Code Generator — free, no watermark</h1><p class="sub">For shop counters, menus, business cards, posters and payment pages.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Text, link, phone or WhatsApp number</label>
+ <input type="text" id="qrtext" placeholder="e.g. https://yourshop.com or 03001234567">
+ <label>Size</label>
+ <select id="qrsize"><option value="256">Small (256px)</option><option value="512" selected>Medium (512px)</option><option value="1024">Large — for printing (1024px)</option></select>
+ <button class="btn" onclick="genQr()">Generate QR Code</button>
+ <div class="result" id="res"></div>
+ <div id="qrbox" style="margin-top:14px"></div>
+ </div><div class="panel prose">
+ <h2>Where QR codes are used</h2>
+ <p>Shops put them on counters for menus and payment links, businesses print them on cards and flyers so customers reach a website or WhatsApp in one scan, and schools and offices use them for forms and attendance links.</p>
+ <h2>Tips for a QR code that always scans</h2>
+ <ul><li>Print it at least 2.5cm wide.</li><li>Keep strong contrast — dark code on a light background.</li><li>Test it with your own phone before printing many copies.</li><li>For WhatsApp, paste your full chat link (https://wa.me/your-number).</li></ul>
+ <h2>Free forever</h2>
+ <p>The QR codes made here never expire and have no watermark, because a QR code is simply your text drawn as a pattern — there is no server and no tracking link in between.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: Do QR codes from here expire?</b><p>No. The code contains your text directly, so it works forever and has no watermark or tracking.</p></div><div class="faq"><b>Q: How do I make a QR code for WhatsApp?</b><p>Type your WhatsApp link — https://wa.me/ followed by your number with country code (for example https://wa.me/923001234567) — and generate.</p></div><div class="faq"><b>Q: What size should I choose?</b><p>Use Medium for screens and sharing, and Large (1024px) for printing posters, banners and shop boards.</p></div><div class="faq"><b>Q: Is it free for business use?</b><p>Yes — free for personal and business use, unlimited.</p></div></div><h2 style="color:var(--dark);margin:6px 0 12px">More Free Tools</h2><div class="rel"><a class="tool-card" href="/age-calculator.html"><div class="ic">🎂</div><h3>Age Calculator</h3><p>Find your exact age in years, months and days — plus total days lived and your next birthday.</p></a><a class="tool-card" href="/compress-image-to-kb.html"><div class="ic">🗜️</div><h3>Compress Image to KB</h3><p>Reduce any photo to an exact size — 20KB, 50KB, 100KB or 200KB — perfect for online forms.</p></a><a class="tool-card" href="/image-compressor.html"><div class="ic">🖼️</div><h3>Image Compressor</h3><p>Make any image file smaller without losing visible quality — free, instant, private.</p></a><a class="tool-card" href="/passport-size-photo-maker.html"><div class="ic">🪪</div><h3>Passport Size Photo Maker</h3><p>Turn any photo into a passport-size photo (35×45mm) at the exact KB size forms ask for.</p></a></div></div>
+<footer class="site">
+<p><b style="color:#fff">ToolKaro</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+</footer>
+<script>
+ function loadLib(){return new Promise((ok,no)=>{if(window.QRCode)return ok();
+   const s=document.createElement('script');
+   s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+   s.onload=ok;s.onerror=no;document.head.appendChild(s);});}
+ async function genQr(){
+   const res=document.getElementById('res');const box=document.getElementById('qrbox');
+   const t=document.getElementById('qrtext').value.trim();
+   if(!t){res.className='result show';res.innerHTML='Please type a link or text first.';return;}
+   res.className='result show';res.innerHTML='Generating…';
+   try{await loadLib();}catch(e){res.innerHTML='Could not load the QR library — please check your internet connection and try again.';return;}
+   const size=+document.getElementById('qrsize').value;
+   box.innerHTML='';
+   new QRCode(box,{text:t,width:size,height:size,correctLevel:QRCode.CorrectLevel.M});
+   setTimeout(()=>{const c=box.querySelector('canvas');
+     if(c){const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='qr-code.png';
+       a.innerHTML='<button class="btn alt" style="margin-top:12px">⬇ Download QR Code (PNG)</button>';box.appendChild(a);}
+     res.innerHTML='<div class="big">Your QR code is ready ✓</div><p>Right-click / long-press the image to save it, or use the download button.</p>';},80);}
+ </script>
+</body>
+</html>

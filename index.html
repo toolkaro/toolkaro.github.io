@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToolKaro — Free Online Tools | ToolKaro</title>
+<meta name="description" content="Free online tools: age calculator, image compressor to exact KB, passport photo maker, password generator, QR code generator, word counter, EMI calculator and more. No sign-up, fully private.">
+<link rel="canonical" href="https://toolkaro.github.io/">
+<meta property="og:title" content="ToolKaro — Free Online Tools | ToolKaro">
+<meta property="og:description" content="Free online tools: age calculator, image compressor to exact KB, passport photo maker, password generator, QR code generator, word counter, EMI calculator and more. No sign-up, fully private.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">ToolKaro<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+
+<div class="hero"><h1>Free Online Tools</h1>
+<p>Fast, private, no sign-up. Every tool runs in your browser — your files never leave your device.</p>
+<div class="search"><input id="hq" type="text" placeholder="Search tools… e.g. age, photo, password"><span>Search</span></div></div>
+<div class="wrap">
+<h2 style="color:var(--dark);margin-bottom:12px">Popular Tools</h2>
+<div class="grid" id="grid"><a class="tool-card" href="/age-calculator.html"><div class="ic">🎂</div><h3>Age Calculator</h3><p>Find your exact age in years, months and days — plus total days lived and your next birthday.</p></a><a class="tool-card" href="/compress-image-to-kb.html"><div class="ic">🗜️</div><h3>Compress Image to KB</h3><p>Reduce any photo to an exact size — 20KB, 50KB, 100KB or 200KB — perfect for online forms.</p></a><a class="tool-card" href="/image-compressor.html"><div class="ic">🖼️</div><h3>Image Compressor</h3><p>Make any image file smaller without losing visible quality — free, instant, private.</p></a><a class="tool-card" href="/passport-size-photo-maker.html"><div class="ic">🪪</div><h3>Passport Size Photo Maker</h3><p>Turn any photo into a passport-size photo (35×45mm) at the exact KB size forms ask for.</p></a><a class="tool-card" href="/marks-percentage-calculator.html"><div class="ic">📊</div><h3>Marks Percentage Calculator</h3><p>Add your subjects and instantly get total marks, percentage and grade — for students.</p></a><a class="tool-card" href="/percentage-calculator.html"><div class="ic">％</div><h3>Percentage Calculator</h3><p>Three percentage tools in one: % of a number, one number as % of another, and % increase/decrease.</p></a><a class="tool-card" href="/password-generator.html"><div class="ic">🔐</div><h3>Password Generator</h3><p>Create strong, random passwords instantly — the safest kind, generated on your own device.</p></a><a class="tool-card" href="/qr-code-generator.html"><div class="ic">📱</div><h3>QR Code Generator</h3><p>Create a free QR code for any link, text or WhatsApp number — download and print instantly.</p></a><a class="tool-card" href="/word-counter.html"><div class="ic">✍️</div><h3>Word Counter</h3><p>Count words, characters, sentences and reading time — live as you type. For essays & articles.</p></a><a class="tool-card" href="/emi-calculator.html"><div class="ic">🏦</div><h3>EMI Calculator</h3><p>Work out your monthly loan payment (EMI), total interest and total cost — for any loan.</p></a><a class="tool-card" href="/date-difference-calculator.html"><div class="ic">📅</div><h3>Date Difference Calculator</h3><p>Count the exact days, weeks and months between any two dates.</p></a></div>
+<div class="panel prose" style="margin-top:22px">
+<h2>How old are you? — by birth year</h2>
+<p><a href="/born-in-1975.html">1975</a> · <a href="/born-in-1976.html">1976</a> · <a href="/born-in-1977.html">1977</a> · <a href="/born-in-1978.html">1978</a> · <a href="/born-in-1979.html">1979</a> · <a href="/born-in-1980.html">1980</a> · <a href="/born-in-1981.html">1981</a> · <a href="/born-in-1982.html">1982</a> · <a href="/born-in-1983.html">1983</a> · <a href="/born-in-1984.html">1984</a> · <a href="/born-in-1985.html">1985</a> · <a href="/born-in-1986.html">1986</a> · <a href="/born-in-1987.html">1987</a> · <a href="/born-in-1988.html">1988</a> · <a href="/born-in-1989.html">1989</a> · <a href="/born-in-1990.html">1990</a> · <a href="/born-in-1991.html">1991</a> · <a href="/born-in-1992.html">1992</a> · <a href="/born-in-1993.html">1993</a> · <a href="/born-in-1994.html">1994</a> · <a href="/born-in-1995.html">1995</a> · <a href="/born-in-1996.html">1996</a> · <a href="/born-in-1997.html">1997</a> · <a href="/born-in-1998.html">1998</a> · <a href="/born-in-1999.html">1999</a> · <a href="/born-in-2000.html">2000</a> · <a href="/born-in-2001.html">2001</a> · <a href="/born-in-2002.html">2002</a> · <a href="/born-in-2003.html">2003</a> · <a href="/born-in-2004.html">2004</a> · <a href="/born-in-2005.html">2005</a> · <a href="/born-in-2006.html">2006</a> · <a href="/born-in-2007.html">2007</a> · <a href="/born-in-2008.html">2008</a> · <a href="/born-in-2009.html">2009</a> · <a href="/born-in-2010.html">2010</a> · <a href="/born-in-2011.html">2011</a> · <a href="/born-in-2012.html">2012</a> · <a href="/born-in-2013.html">2013</a> · <a href="/born-in-2014.html">2014</a> · <a href="/born-in-2015.html">2015</a></p>
+<h2>Why people use ToolKaro</h2>
+<p>Forms demand photos under 50KB. Students need their percentage before an admission deadline. Shops need a QR code today, not after a sign-up form. ToolKaro tools answer these everyday searches instantly — no accounts, no uploads, no watermarks, no waiting.</p>
+</div></div>
+
+<footer class="site">
+<p><b style="color:#fff">ToolKaro</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+</footer>
+<script>
+ document.getElementById('hq').addEventListener('input',e=>{
+   const q=e.target.value.toLowerCase();
+   document.querySelectorAll('#grid .tool-card').forEach(c=>{
+     c.style.display=c.textContent.toLowerCase().includes(q)?'block':'none';});});
+</script>
+</body>
+</html>

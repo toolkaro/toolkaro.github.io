@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marks Percentage Calculator | ToolKaro</title>
+<meta name="description" content="Free marks percentage calculator for students. Enter marks obtained and total marks for each subject to get your overall percentage and grade instantly.">
+<link rel="canonical" href="https://toolkaro.github.io/marks-percentage-calculator.html">
+<meta property="og:title" content="Marks Percentage Calculator | ToolKaro">
+<meta property="og:description" content="Free marks percentage calculator for students. Enter marks obtained and total marks for each subject to get your overall percentage and grade instantly.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Marks Percentage Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/marks-percentage-calculator.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate my percentage from marks?", "acceptedAnswer": {"@type": "Answer", "text": "Add all the marks you obtained, divide by the total maximum marks of all subjects, and multiply by 100. This calculator does it for you automatically."}}, {"@type": "Question", "name": "Can I use it for one subject only?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 just fill in one row."}}, {"@type": "Question", "name": "What grade is 75%?", "acceptedAnswer": {"@type": "Answer", "text": "On the common scale used here, 70\u201379% is a B grade. Your own board may grade differently, but your percentage stays the same."}}, {"@type": "Question", "name": "Is this calculator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free and unlimited."}}]}</script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">ToolKaro<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › Marks Percentage Calculator</div><h1 class="page">Marks Percentage Calculator — for students</h1><p class="sub">Enter each subject's marks and get your total, percentage and grade in one click.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <div id="rows"></div>
+ <button class="btn alt" style="width:auto;padding:10px 18px" onclick="addRow()">+ Add Subject</button>
+ <button class="btn" onclick="calcMarks()">Calculate Percentage</button>
+ <div class="result" id="res"></div>
+ </div><div class="panel prose">
+ <h2>How percentage is calculated</h2>
+ <p>Percentage = (Total marks obtained ÷ Total maximum marks) × 100. This calculator adds all your subjects together and applies exactly that formula.</p>
+ <h2>Grading scale used</h2>
+ <p>90% and above: A+ · 80–89%: A · 70–79%: B · 60–69%: C · 50–59%: D · 40–49%: E · Below 40%: F. Your board or university may use a slightly different scale, but the percentage is always calculated the same way.</p>
+ <h2>Useful for</h2>
+ <p>Checking results, filling admission forms that ask for your percentage, and converting marks when applying for jobs or scholarships.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: How do I calculate my percentage from marks?</b><p>Add all the marks you obtained, divide by the total maximum marks of all subjects, and multiply by 100. This calculator does it for you automatically.</p></div><div class="faq"><b>Q: Can I use it for one subject only?</b><p>Yes — just fill in one row.</p></div><div class="faq"><b>Q: What grade is 75%?</b><p>On the common scale used here, 70–79% is a B grade. Your own board may grade differently, but your percentage stays the same.</p></div><div class="faq"><b>Q: Is this calculator free?</b><p>Yes, completely free and unlimited.</p></div></div><h2 style="color:var(--dark);margin:6px 0 12px">More Free Tools</h2><div class="rel"><a class="tool-card" href="/age-calculator.html"><div class="ic">🎂</div><h3>Age Calculator</h3><p>Find your exact age in years, months and days — plus total days lived and your next birthday.</p></a><a class="tool-card" href="/compress-image-to-kb.html"><div class="ic">🗜️</div><h3>Compress Image to KB</h3><p>Reduce any photo to an exact size — 20KB, 50KB, 100KB or 200KB — perfect for online forms.</p></a><a class="tool-card" href="/image-compressor.html"><div class="ic">🖼️</div><h3>Image Compressor</h3><p>Make any image file smaller without losing visible quality — free, instant, private.</p></a><a class="tool-card" href="/passport-size-photo-maker.html"><div class="ic">🪪</div><h3>Passport Size Photo Maker</h3><p>Turn any photo into a passport-size photo (35×45mm) at the exact KB size forms ask for.</p></a></div></div>
+<footer class="site">
+<p><b style="color:#fff">ToolKaro</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+</footer>
+<script>
+ function addRow(ob='',tot='100'){
+   const d=document.createElement('div');
+   d.style.display='flex';d.style.gap='8px';d.style.marginTop='8px';
+   d.innerHTML='<input type="number" class="ob" placeholder="Marks obtained" value="'+ob+'" min="0">'+
+   '<input type="number" class="tt" placeholder="Total marks" value="'+tot+'" min="1">'+
+   '<button onclick="this.parentElement.remove()" style="background:#fdecec;border:1px solid #f3c2c2;border-radius:9px;padding:0 14px;cursor:pointer">✕</button>';
+   document.getElementById('rows').appendChild(d);}
+ function grade(p){return p>=90?'A+':p>=80?'A':p>=70?'B':p>=60?'C':p>=50?'D':p>=40?'E':'F';}
+ function calcMarks(){
+   const res=document.getElementById('res');
+   let so=0,st=0,ok=false;
+   document.querySelectorAll('#rows > div').forEach(r=>{
+     const o=parseFloat(r.querySelector('.ob').value),t=parseFloat(r.querySelector('.tt').value);
+     if(!isNaN(o)&&!isNaN(t)&&t>0){so+=o;st+=t;ok=true;}});
+   if(!ok){res.className='result show';res.innerHTML='Please enter marks in at least one subject.';return;}
+   const p=so/st*100;
+   res.className='result show';
+   res.innerHTML='<div class="big">'+p.toFixed(2)+'% — Grade '+grade(p)+'</div><table>'+
+   '<tr><td>Total obtained</td><td>'+so+'</td></tr><tr><td>Total maximum</td><td>'+st+'</td></tr></table>';}
+ addRow();addRow();addRow();addRow();addRow();
+ </script>
+</body>
+</html>
