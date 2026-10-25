@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter — USD to PKR and World Currencies | SSToolHub</title>
+<meta name="description" content="Free currency converter with live rates. Convert US dollars to Pakistani rupees, Saudi riyals, UAE dirhams, pounds, euros and more — updated from free public rate sources.">
+<link rel="canonical" href="https://toolkaro.github.io/currency-converter.html">
+<meta property="og:title" content="Currency Converter — USD to PKR and World Currencies | SSToolHub">
+<meta property="og:description" content="Free currency converter with live rates. Convert US dollars to Pakistani rupees, Saudi riyals, UAE dirhams, pounds, euros and more — updated from free public rate sources.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolkaro.github.io/currency-converter.html">
+<meta property="og:image" content="https://toolkaro.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Currency Converter — USD to PKR and World Currencies | SSToolHub">
+<meta name="twitter:description" content="Free currency converter with live rates. Convert US dollars to Pakistani rupees, Saudi riyals, UAE dirhams, pounds, euros and more — updated from free public rate sources.">
+<meta name="twitter:image" content="https://toolkaro.github.io/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="theme-color" content="#0b3d2e">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Currency Converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/currency-converter.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where does the rate come from?", "acceptedAnswer": {"@type": "Answer", "text": "From free public exchange-rate sources, fetched live in your browser each time you convert. If the source cannot be reached, the tool says so instead of showing a guessed or stale rate."}}, {"@type": "Question", "name": "Why does my bank give a different rate?", "acceptedAnswer": {"@type": "Answer", "text": "Banks and exchange companies buy and sell at their own rates, adding a spread to the mid-market reference. Open-market cash rates in Pakistan are usually Rs 1\u20133 above the interbank rate. Compare the final rupees you receive, not just the headline rate."}}, {"@type": "Question", "name": "Can I convert PKR to USD too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 pick PKR in \"From\" and any currency in \"To\", or use the Swap button to flip the pair instantly."}}, {"@type": "Question", "name": "Is the rate updated daily?", "acceptedAnswer": {"@type": "Answer", "text": "The rate is fetched live on every conversion, so it reflects the source's latest update rather than a figure stored on this page."}}, {"@type": "Question", "name": "Why do riyal and dirham move with the dollar?", "acceptedAnswer": {"@type": "Answer", "text": "The Saudi riyal and UAE dirham are pegged to the US dollar, so against the rupee they move almost exactly as the dollar does."}}, {"@type": "Question", "name": "Can I rely on this rate for a big transfer?", "acceptedAnswer": {"@type": "Answer", "text": "Use it for planning and comparing providers. For the actual transaction, the rate your bank or remittance provider quotes on the day is the one that counts \u2014 always confirm it before sending."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolkaro.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Currency Converter", "item": "https://toolkaro.github.io/currency-converter.html"}]}</script>
+<meta name="google-adsense-account" content="ca-pub-8941167698354547">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8941167698354547" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">SSToolHub<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › Currency Converter</div><h1 class="page">Currency Converter — USD to PKR and world currencies</h1><p class="sub">Live mid-market rates for the currencies Pakistanis check every day: dollar, riyal, dirham, pound and euro.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Amount</label>
+ <input type="number" id="ccAmt" value="100" min="0" step="any">
+ <label>From</label>
+ <select id="ccFrom">
+ <option value="USD" selected>USD — US Dollar</option><option value="PKR">PKR — Pakistani Rupee</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — British Pound</option><option value="SAR">SAR — Saudi Riyal</option><option value="AED">AED — UAE Dirham</option><option value="QAR">QAR — Qatari Riyal</option><option value="KWD">KWD — Kuwaiti Dinar</option><option value="CAD">CAD — Canadian Dollar</option><option value="AUD">AUD — Australian Dollar</option><option value="CNY">CNY — Chinese Yuan</option><option value="INR">INR — Indian Rupee</option><option value="JPY">JPY — Japanese Yen</option><option value="CHF">CHF — Swiss Franc</option>
+ </select>
+ <label>To</label>
+ <select id="ccTo">
+ <option value="USD">USD — US Dollar</option><option value="PKR" selected>PKR — Pakistani Rupee</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — British Pound</option><option value="SAR">SAR — Saudi Riyal</option><option value="AED">AED — UAE Dirham</option><option value="QAR">QAR — Qatari Riyal</option><option value="KWD">KWD — Kuwaiti Dinar</option><option value="CAD">CAD — Canadian Dollar</option><option value="AUD">AUD — Australian Dollar</option><option value="CNY">CNY — Chinese Yuan</option><option value="INR">INR — Indian Rupee</option><option value="JPY">JPY — Japanese Yen</option><option value="CHF">CHF — Swiss Franc</option>
+ </select>
+ <button class="btn alt" style="width:auto;padding:10px 18px" onclick="swapCc()">⇅ Swap Currencies</button>
+ <button class="btn" onclick="convCc()">Convert</button>
+ <div class="result" id="res"></div>
+ <p class="small" style="margin-top:10px">Rates are indicative mid-market rates from free public sources. Banks and exchange companies buy and sell at slightly different rates — open-market cash rates in Pakistan are usually Rs 1–3 above the interbank rate.</p>
+ </div><div class="panel prose">
+ <h2>What this converter does</h2>
+ <p>Enter an amount, pick the two currencies, and press Convert. The tool fetches the latest exchange rate from a free public rate source and shows you the converted amount plus the rate it used, for example "1 USD = 276.80 PKR". Everything happens in your browser; the rate comes from the source live each time you convert, so the number is as fresh as the source itself. If the rate source cannot be reached — for example on a weak connection — the tool says so plainly instead of inventing a rate, because a stale or guessed rate is worse than no rate when money is involved.</p>
+ <h2>Mid-market, interbank and open-market — three rates, three meanings</h2>
+ <p>Newspapers and converters quote the <b>mid-market rate</b>: the halfway point between what buyers and sellers will pay, roughly what banks trade among themselves (the <b>interbank rate</b>). It is the honest reference number, and it is what this tool shows. But it is not the rate you personally get. When you walk into an exchange company with cash, you get the <b>open-market rate</b>, which in Pakistan is usually <b>Rs 1–3 higher</b> per dollar than the interbank rate — the shop's spread covers its costs, demand and risk. Banks and remittance apps convert closer to the interbank rate, sometimes with a small premium added by government incentive schemes. So if this tool says 100 dollars = Rs 27,680 at the mid-market rate, expect a cash shop to hand over a little less, and a bank transfer to land a little closer to the quoted figure. Always check the rate your own provider quotes on the day before sending money — the headline figure is a guide, not a promise.</p>
+ <h2>A worked example</h2>
+ <p>Suppose the live rate is <b>1 USD = 276.80 PKR</b> (the interbank level around 25 October 2026). Converting <b>100 USD</b> gives <b>Rs 27,680</b> at the mid-market rate. Converting the other way, <b>Rs 10,000</b> divided by 276.80 gives about <b>$36.13</b>. A family member sending 500 dollars home would see 500 × 276.80 = <b>Rs 138,400</b> before any provider spread or fee. Small rate moves add up at these sizes: a shift of just Rs 2 per dollar changes a 500-dollar remittance by Rs 1,000 — which is why people who receive money from abroad check the rate on the day they collect, not the day it was sent.</p>
+ <h2>Why the rupee rate moves</h2>
+ <p>The rupee's value against the dollar is set by supply and demand for dollars: remittances from overseas Pakistanis, export earnings, import payments (especially oil), foreign loans and repayments, and the State Bank of Pakistan's own reserves and policy. When dollars flow in strongly — a good remittance month, for example — the rupee tends to firm up; when imports surge or reserves fall, it tends to weaken. Big moves usually come with news: an IMF programme review, a change in the policy interest rate, or a jump in world oil prices. Day-to-day moves of a rupee or two are normal noise; the trend over months is what matters for anyone planning a large transfer, a fee payment abroad, or a purchase priced in dollars.</p>
+ <h2>The currencies Pakistanis check most</h2>
+ <p><b>US dollar (USD)</b> is the reference for almost everything — imports, the PTA tax on phones (customs values phones in dollars and converts at the State Bank rate on the day of assessment), and overseas fees. <b>Saudi riyal (SAR)</b> and <b>UAE dirham (AED)</b> matter because most overseas Pakistanis work in Saudi Arabia and the Gulf; both are pegged to the dollar, so they move against the rupee almost exactly as the dollar does. <b>British pound (GBP)</b> matters for the large UK-Pakistani community and for students. <b>Euro (EUR)</b> covers Europe. All of them are in this converter, in both directions.</p>
+ <h2>Common mistakes with converters</h2>
+ <ul><li><b>Treating the mid-market rate as cash in hand.</b> The shop or app will quote its own rate, always a little worse than mid-market. Budget for the spread.</li>
+ <li><b>Forgetting fees.</b> Some services advertise a great rate and charge a fee on top; others bake the fee into a worse rate. Compare the final rupees received, not the headline rate.</li>
+ <li><b>Using an old screenshot.</b> A rate from last week is history. Rates move daily — convert fresh on the day you act.</li>
+ <li><b>Mixing up the direction.</b> "USD to PKR" and "PKR to USD" are different calculations. The Swap button here flips them so you cannot get the pair backwards.</li></ul>
+ <h2>Is this rate official?</h2>
+ <p>No single converter is "the" official rate. The State Bank of Pakistan publishes an interbank closing rate each working day; exchange companies publish their own buy/sell boards; Google and XE show mid-market estimates. They normally sit within a rupee or two of each other. This tool's rate comes from free public sources that track the same market, and it is labelled indicative for exactly that reason: it is the right number for planning and comparing, and your provider's quote on the day is the right number for the actual transaction.</p>
+ <h2>Cross-checking a rate before you act</h2>
+ <p>For a small conversion, one converter is enough. For a large transfer — a semester fee, a vehicle purchase, a house payment from abroad — cross-check two independent sources before you commit: the State Bank's published interbank closing, your own bank's board rate, and one converter like this one. If all three sit within a rupee or two, the market is calm and any of them is a fair guide. If they disagree by much more, something is moving fast — a policy announcement, a reserves update, a sudden oil-price jump — and waiting a day, or asking your provider to lock a rate, can be worth more than the conversion itself. Never accept a rate quoted only inside a chat message or a social-media post: a rate you cannot verify on an independent source is not a rate, it is a claim.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: Where does the rate come from?</b><p>From free public exchange-rate sources, fetched live in your browser each time you convert. If the source cannot be reached, the tool says so instead of showing a guessed or stale rate.</p></div><div class="faq"><b>Q: Why does my bank give a different rate?</b><p>Banks and exchange companies buy and sell at their own rates, adding a spread to the mid-market reference. Open-market cash rates in Pakistan are usually Rs 1–3 above the interbank rate. Compare the final rupees you receive, not just the headline rate.</p></div><div class="faq"><b>Q: Can I convert PKR to USD too?</b><p>Yes — pick PKR in "From" and any currency in "To", or use the Swap button to flip the pair instantly.</p></div><div class="faq"><b>Q: Is the rate updated daily?</b><p>The rate is fetched live on every conversion, so it reflects the source's latest update rather than a figure stored on this page.</p></div><div class="faq"><b>Q: Why do riyal and dirham move with the dollar?</b><p>The Saudi riyal and UAE dirham are pegged to the US dollar, so against the rupee they move almost exactly as the dollar does.</p></div><div class="faq"><b>Q: Can I rely on this rate for a big transfer?</b><p>Use it for planning and comparing providers. For the actual transaction, the rate your bank or remittance provider quotes on the day is the one that counts — always confirm it before sending.</p></div></div></div>
+<footer class="site">
+<div style="max-width:1000px;margin:0 auto 22px;text-align:left">
+<h2 style="color:#fff;font-size:19px;margin-bottom:10px">Free Tools</h2>
+<p style="line-height:2"><a href="/age-calculator.html">Age Calculator</a> · <a href="/compress-image-to-kb.html">Compress Image to KB</a> · <a href="/image-compressor.html">Image Compressor</a> · <a href="/passport-size-photo-maker.html">Passport Size Photo Maker</a> · <a href="/marks-percentage-calculator.html">Marks Percentage Calculator</a> · <a href="/percentage-calculator.html">Percentage Calculator</a> · <a href="/password-generator.html">Password Generator</a> · <a href="/qr-code-generator.html">QR Code Generator</a> · <a href="/word-counter.html">Word Counter</a> · <a href="/emi-calculator.html">EMI Calculator</a> · <a href="/date-difference-calculator.html">Date Difference Calculator</a> · <a href="/bmi-calculator.html">BMI Calculator</a> · <a href="/currency-converter.html">Currency Converter</a> · <a href="/zakat-calculator.html">Zakat Calculator</a> · <a href="/unit-converter.html">Unit Converter</a> · <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> · <a href="/image-resizer.html">Image Resizer</a></p>
+<p style="margin-top:10px;line-height:2"><b style="color:#fff">Guides:</b> <a href="/how-to-compress-photo-to-exact-kb.html">Compress a Photo to an Exact KB Size</a> · <a href="/how-to-make-passport-photo-at-home.html">Make a Passport Photo at Home</a> · <a href="/how-emi-is-calculated.html">How EMI Is Calculated</a> · <a href="/how-to-create-a-strong-password.html">Create a Strong Password</a> · <a href="/how-to-calculate-percentage-from-marks.html">Calculate Percentage from Marks</a></p>
+</div>
+<p><b style="color:#fff">SSToolHub</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/terms.html">Terms of Use</a>·<a href="/disclaimer.html">Disclaimer</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+<p style="margin-top:8px;color:#8fb8a6;font-size:13px">Featured on <a href="https://fazier.com" target="_blank" rel="noopener" style="color:#8fb8a6;margin:0;text-decoration:underline">Fazier</a></p>
+</footer>
+<script>
+ function swapCc(){
+   const f=document.getElementById('ccFrom'),t=document.getElementById('ccTo');
+   const v=f.value; f.value=t.value; t.value=v; convCc();}
+ async function fetchRates(base){
+   const urls=['https://open.er-api.com/v6/latest/'+base,'https://api.exchangerate-api.com/v4/latest/'+base];
+   for(const u of urls){
+     try{const r=await fetch(u); if(!r.ok)continue; const j=await r.json();
+       if(j&&j.rates)return {rates:j.rates,date:j.date||j.time_last_update||''};}
+     catch(e){}}
+   return null;}
+ async function convCc(){
+   const res=document.getElementById('res');
+   const amt=parseFloat(document.getElementById('ccAmt').value);
+   const from=document.getElementById('ccFrom').value, to=document.getElementById('ccTo').value;
+   if(!(amt>=0)){res.className='result show';res.innerHTML='Please enter an amount.';return;}
+   if(from===to){res.className='result show';res.innerHTML='<div class="big">'+amt.toLocaleString('en-US')+' '+to+'</div><p>Same currency — no conversion needed.</p>';return;}
+   res.className='result show';res.innerHTML='Fetching live rate…';
+   const d=await fetchRates(from);
+   if(!d||!d.rates[to]){res.innerHTML='Could not fetch the live rate right now. Check your connection and try again — no rate is shown rather than a guessed one.';return;}
+   const rate=d.rates[to], out=amt*rate;
+   const fmt=(x,cur)=>x.toLocaleString('en-US',{maximumFractionDigits:2});
+   res.innerHTML='<div class="big">'+fmt(amt,from)+' '+from+' = '+fmt(out,to)+' '+to+'</div><table>'+
+   '<tr><td>Rate</td><td>1 '+from+' = '+fmt(rate,to)+' '+to+'</td></tr>'+
+   '<tr><td>Reverse rate</td><td>1 '+to+' = '+fmt(1/rate,from)+' '+from+'</td></tr>'+
+   (d.date?'<tr><td>Rate date</td><td>'+d.date+'</td></tr>':'')+'</table>'+
+   '<p class="small" style="margin-top:8px">Indicative mid-market rate. Your bank or exchange company will quote a slightly different buy/sell rate.</p>';}
+ convCc();
+ </script>
+</body>
+</html>

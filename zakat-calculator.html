@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zakat Calculator — 2.5% on Cash, Gold, Silver and Trade Goods | SSToolHub</title>
+<meta name="description" content="Free Zakat calculator for Pakistan. Enter your cash, gold, silver and trade goods to check nisab and calculate your Zakat at 2.5% — with editable gold and silver prices.">
+<link rel="canonical" href="https://toolkaro.github.io/zakat-calculator.html">
+<meta property="og:title" content="Zakat Calculator — 2.5% on Cash, Gold, Silver and Trade Goods | SSToolHub">
+<meta property="og:description" content="Free Zakat calculator for Pakistan. Enter your cash, gold, silver and trade goods to check nisab and calculate your Zakat at 2.5% — with editable gold and silver prices.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolkaro.github.io/zakat-calculator.html">
+<meta property="og:image" content="https://toolkaro.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zakat Calculator — 2.5% on Cash, Gold, Silver and Trade Goods | SSToolHub">
+<meta name="twitter:description" content="Free Zakat calculator for Pakistan. Enter your cash, gold, silver and trade goods to check nisab and calculate your Zakat at 2.5% — with editable gold and silver prices.">
+<meta name="twitter:image" content="https://toolkaro.github.io/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="theme-color" content="#0b3d2e">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Zakat Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/zakat-calculator.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is Zakat?", "acceptedAnswer": {"@type": "Answer", "text": "2.5% of your total zakatable wealth, once that wealth reaches nisab and stays there for one lunar year."}}, {"@type": "Question", "name": "What is nisab?", "acceptedAnswer": {"@type": "Answer", "text": "The minimum wealth threshold: 87.48 grams of gold or 612.36 grams of silver. Scholars in Pakistan commonly use the silver nisab, which is lower in rupees \u2014 this calculator defaults to it and lets you switch to gold."}}, {"@type": "Question", "name": "Is Zakat due on my salary?", "acceptedAnswer": {"@type": "Answer", "text": "Not on the salary itself, but on what you save from it: once saved money stays with you for a full lunar year above nisab, it becomes zakatable like any other savings."}}, {"@type": "Question", "name": "Does my gold jewellery count?", "acceptedAnswer": {"@type": "Answer", "text": "In the Hanafi school followed by most Pakistanis, yes \u2014 gold jewellery counts even when worn regularly. Other schools differ, so confirm with a scholar you trust."}}, {"@type": "Question", "name": "Can I deduct my full home loan?", "acceptedAnswer": {"@type": "Answer", "text": "No. Only the amount actually due within the year is deducted. Counting a whole long-term loan balance would wrongly erase a real obligation."}}, {"@type": "Question", "name": "My bank already deducted Zakat. Do I pay again?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 never zakat the same wealth twice. Subtract what the bank took from your assessment, or count the bank deduction as part of what you paid, and keep the bank slip as your record."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolkaro.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Zakat Calculator", "item": "https://toolkaro.github.io/zakat-calculator.html"}]}</script>
+<meta name="google-adsense-account" content="ca-pub-8941167698354547">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8941167698354547" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">SSToolHub<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › Zakat Calculator</div><h1 class="page">Zakat Calculator — 2.5% on cash, gold, silver and trade goods</h1><p class="sub">Check whether nisab is reached, then get your exact Zakat amount in one click.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Cash in hand and in bank accounts (Rs)</label>
+ <input type="number" id="zCash" placeholder="e.g. 400000" min="0">
+ <label>Gold you own (grams)</label>
+ <input type="number" id="zGold" placeholder="e.g. 20" min="0" step="0.1">
+ <label>Gold price per gram (Rs) — check today's rate and update this</label>
+ <input type="number" id="zGoldP" value="35500" min="0">
+ <label>Silver you own (grams)</label>
+ <input type="number" id="zSil" placeholder="e.g. 100" min="0" step="0.1">
+ <label>Silver price per gram (Rs) — check today's rate and update this</label>
+ <input type="number" id="zSilP" value="530" min="0">
+ <label>Value of trade goods / business stock (Rs)</label>
+ <input type="number" id="zTrade" placeholder="e.g. 0" min="0">
+ <label>Short-term debts due within the year (Rs)</label>
+ <input type="number" id="zDebt" placeholder="e.g. 50000" min="0">
+ <label>Nisab basis (scholars in Pakistan commonly use silver, the lower threshold)</label>
+ <select id="zBasis"><option value="silver" selected>Silver nisab — 612.36 grams of silver</option><option value="gold">Gold nisab — 87.48 grams of gold</option></select>
+ <button class="btn" onclick="calcZakat()">Calculate My Zakat</button>
+ <div class="result" id="res"></div>
+ <p class="small" style="margin-top:10px">For guidance only. Gold and silver prices move daily — update the price fields with today's rate before relying on the result, and ask a qualified scholar about your own situation.</p>
+ </div><div class="panel prose">
+ <h2>What is Zakat?</h2>
+ <p>Zakat is the annual obligatory charity in Islam: <b>2.5%</b> of qualifying wealth, paid by adult Muslims whose wealth reaches a minimum threshold called <b>nisab</b> and stays there for one full lunar year (<b>hawl</b>). It is not a tax on income — it is a charge on wealth that is held: savings, gold, silver and trade goods. Money you earn and spend within the year is not zakatable; money that sits with you for a year above nisab is. Pick one day in the year — many people pick a day in Ramadan, though any day works — add up your zakatable wealth on that day, and 2.5% of it is your Zakat.</p>
+ <h2>Nisab: the threshold, in gold and in silver</h2>
+ <p>Nisab is traditionally set at <b>87.48 grams of gold (7.5 tola)</b> or <b>612.36 grams of silver (52.5 tola)</b>. Because silver is far cheaper per gram, the silver nisab in rupees is much lower than the gold nisab — and most scholars in Pakistan recommend the silver standard, precisely because it brings more people into the obligation and more help to the poor. Two reference points for 2026: the State Bank of Pakistan's nisab figure used for bank deductions is <b>Rs 614,760</b>, while a silver-based nisab at a silver price around Rs 530 per gram is 612.36 × 530 = <b>about Rs 324,550</b>. The gap between those two numbers is exactly why the basis matters — and why this calculator lets you choose, defaulting to silver. If you hold only gold and nothing else, the gold nisab applies to you; if your wealth is mixed — cash, gold, silver and goods together — the silver nisab is the standard most scholars apply.</p>
+ <h2>A worked example</h2>
+ <p>Suppose on your Zakat day you hold: cash <b>Rs 400,000</b>; gold <b>20 grams</b> at Rs 35,500 per gram = <b>Rs 710,000</b>; silver <b>100 grams</b> at Rs 530 per gram = <b>Rs 53,000</b>; trade goods worth <b>Rs 0</b>; and short-term debts of <b>Rs 50,000</b>. Total zakatable wealth = 400,000 + 710,000 + 53,000 − 50,000 = <b>Rs 1,113,000</b>. Silver nisab = 612.36 × 530 = <b>Rs 324,551</b>. Your wealth is above nisab, so Zakat = 1,113,000 × 2.5% = <b>Rs 27,825</b>. On the gold basis instead, nisab would be 87.48 × 35,500 = Rs 3,105,540, and this same person would owe nothing — which shows, in one example, why the choice of basis changes the answer completely and why you should settle it with a scholar you trust if you are unsure.</p>
+ <h2>What counts — and what does not</h2>
+ <p><b>Counts:</b> cash in hand and in bank accounts (including digital wallets), gold and silver in any form including jewellery (Hanafi opinion includes jewellery kept for wearing), the market value of shares held for trading, business stock and trade goods, and money owed to you that you expect to receive. <b>Does not count:</b> your home, your car, your clothes, household furniture, and the tools of your trade — things you use, not things you hold as wealth. Salary is a common confusion: a salary is not itself zakatable, but once it is saved and sits in your account for a full lunar year above nisab, it becomes zakatable like any other savings. Long-term debts are another trap: only the amount actually due within the year is deducted, not a whole 20-year loan balance.</p>
+ <h2>Who can receive Zakat?</h2>
+ <p>The Quran (Surah At-Tawbah, verse 60) names eight categories: the poor, the needy, those employed to administer Zakat, those whose hearts are to be reconciled, freeing captives, people in debt, in the cause of Allah, and stranded travellers. The practical rule most people need: give to someone whose own wealth is below nisab. You do not need to investigate them like a detective — if you reasonably know they are not wealthy, that is enough — but you cannot pay Zakat to your own parents, children or spouse, or to someone who is already above nisab, and Zakat cannot be used to pay for a mosque building or a public project that benefits everyone including the wealthy.</p>
+ <h2>Common mistakes</h2>
+ <ul><li><b>Using last year's gold price.</b> Gold and silver move fast; a price from six months ago can shift your Zakat by thousands of rupees. Update the price fields on your Zakat day.</li>
+ <li><b>Forgetting jewellery.</b> In the Hanafi school followed by most Pakistanis, gold jewellery counts even if it is worn regularly. Other schools differ — another reason to confirm with your own scholar.</li>
+ <li><b>Counting the whole loan.</b> Only short-term, currently payable debts are deducted. Counting a full mortgage balance can wrongly wipe out a real obligation.</li>
+ <li><b>Paying on income instead of wealth.</b> Zakat is 2.5% of what you hold on your Zakat day, not 2.5% of what you earned in the year.</li>
+ <li><b>Waiting for Ramadan out of habit.</b> Ramadan is a blessed time to pay, but if your hawl completes in another month, that month is when it is due.</li></ul>
+ <h2>A note on bank deductions in Pakistan</h2>
+ <p>Under Pakistani law, banks may deduct Zakat at source from certain accounts on the first of Ramadan, subject to nisab and to a declaration (on Form CZ-50) if you wish to opt out and pay privately. If your bank has already deducted Zakat on an account, do not count that same money again in your own calculation — deduct what was taken from the wealth you assess, or treat the bank's deduction as part of what you paid. Keep the bank's advice slip with your own record so the same wealth is never zakated twice.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: How much is Zakat?</b><p>2.5% of your total zakatable wealth, once that wealth reaches nisab and stays there for one lunar year.</p></div><div class="faq"><b>Q: What is nisab?</b><p>The minimum wealth threshold: 87.48 grams of gold or 612.36 grams of silver. Scholars in Pakistan commonly use the silver nisab, which is lower in rupees — this calculator defaults to it and lets you switch to gold.</p></div><div class="faq"><b>Q: Is Zakat due on my salary?</b><p>Not on the salary itself, but on what you save from it: once saved money stays with you for a full lunar year above nisab, it becomes zakatable like any other savings.</p></div><div class="faq"><b>Q: Does my gold jewellery count?</b><p>In the Hanafi school followed by most Pakistanis, yes — gold jewellery counts even when worn regularly. Other schools differ, so confirm with a scholar you trust.</p></div><div class="faq"><b>Q: Can I deduct my full home loan?</b><p>No. Only the amount actually due within the year is deducted. Counting a whole long-term loan balance would wrongly erase a real obligation.</p></div><div class="faq"><b>Q: My bank already deducted Zakat. Do I pay again?</b><p>No — never zakat the same wealth twice. Subtract what the bank took from your assessment, or count the bank deduction as part of what you paid, and keep the bank slip as your record.</p></div></div></div>
+<footer class="site">
+<div style="max-width:1000px;margin:0 auto 22px;text-align:left">
+<h2 style="color:#fff;font-size:19px;margin-bottom:10px">Free Tools</h2>
+<p style="line-height:2"><a href="/age-calculator.html">Age Calculator</a> · <a href="/compress-image-to-kb.html">Compress Image to KB</a> · <a href="/image-compressor.html">Image Compressor</a> · <a href="/passport-size-photo-maker.html">Passport Size Photo Maker</a> · <a href="/marks-percentage-calculator.html">Marks Percentage Calculator</a> · <a href="/percentage-calculator.html">Percentage Calculator</a> · <a href="/password-generator.html">Password Generator</a> · <a href="/qr-code-generator.html">QR Code Generator</a> · <a href="/word-counter.html">Word Counter</a> · <a href="/emi-calculator.html">EMI Calculator</a> · <a href="/date-difference-calculator.html">Date Difference Calculator</a> · <a href="/bmi-calculator.html">BMI Calculator</a> · <a href="/currency-converter.html">Currency Converter</a> · <a href="/zakat-calculator.html">Zakat Calculator</a> · <a href="/unit-converter.html">Unit Converter</a> · <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> · <a href="/image-resizer.html">Image Resizer</a></p>
+<p style="margin-top:10px;line-height:2"><b style="color:#fff">Guides:</b> <a href="/how-to-compress-photo-to-exact-kb.html">Compress a Photo to an Exact KB Size</a> · <a href="/how-to-make-passport-photo-at-home.html">Make a Passport Photo at Home</a> · <a href="/how-emi-is-calculated.html">How EMI Is Calculated</a> · <a href="/how-to-create-a-strong-password.html">Create a Strong Password</a> · <a href="/how-to-calculate-percentage-from-marks.html">Calculate Percentage from Marks</a></p>
+</div>
+<p><b style="color:#fff">SSToolHub</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/terms.html">Terms of Use</a>·<a href="/disclaimer.html">Disclaimer</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+<p style="margin-top:8px;color:#8fb8a6;font-size:13px">Featured on <a href="https://fazier.com" target="_blank" rel="noopener" style="color:#8fb8a6;margin:0;text-decoration:underline">Fazier</a></p>
+</footer>
+<script>
+ function calcZakat(){
+   const res=document.getElementById('res');
+   const v=id=>parseFloat(document.getElementById(id).value)||0;
+   const cash=v('zCash'), gold=v('zGold'), goldP=v('zGoldP'), sil=v('zSil'), silP=v('zSilP'), trade=v('zTrade'), debt=v('zDebt');
+   const goldV=gold*goldP, silV=sil*silP;
+   const total=cash+goldV+silV+trade-debt;
+   const basis=document.getElementById('zBasis').value;
+   const nisab=basis==='silver'?612.36*silP:87.48*goldP;
+   const f=x=>Math.round(x).toLocaleString('en-US');
+   let out='<table>'+
+   '<tr><td>Cash</td><td>Rs '+f(cash)+'</td></tr>'+
+   '<tr><td>Gold ('+gold+' g)</td><td>Rs '+f(goldV)+'</td></tr>'+
+   '<tr><td>Silver ('+sil+' g)</td><td>Rs '+f(silV)+'</td></tr>'+
+   '<tr><td>Trade goods</td><td>Rs '+f(trade)+'</td></tr>'+
+   '<tr><td>Less short-term debts</td><td>− Rs '+f(debt)+'</td></tr>'+
+   '<tr><td>Total zakatable wealth</td><td>Rs '+f(total)+'</td></tr>'+
+   '<tr><td>Nisab ('+(basis==='silver'?'silver':'gold')+')</td><td>Rs '+f(nisab)+'</td></tr></table>';
+   if(total>=nisab && total>0){
+     out='<div class="big">Your Zakat: Rs '+f(total*0.025)+'</div>'+out+
+     '<p style="margin-top:8px">2.5% of Rs '+f(total)+'.</p>';
+   }else{
+     out='<div class="big">No Zakat due</div>'+out+
+     '<p style="margin-top:8px">Your wealth is below nisab, so no Zakat is due on this assessment. If your wealth grows above nisab and stays there for a lunar year, it becomes due then.</p>';
+   }
+   res.className='result show'; res.innerHTML=out;}
+ </script>
+</body>
+</html>

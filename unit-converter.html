@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter — Length, Weight and Temperature | SSToolHub</title>
+<meta name="description" content="Free unit converter. Convert length (km, miles, feet, inches), weight (kg, pounds, tola, maund) and temperature (Celsius, Fahrenheit, Kelvin) instantly.">
+<link rel="canonical" href="https://toolkaro.github.io/unit-converter.html">
+<meta property="og:title" content="Unit Converter — Length, Weight and Temperature | SSToolHub">
+<meta property="og:description" content="Free unit converter. Convert length (km, miles, feet, inches), weight (kg, pounds, tola, maund) and temperature (Celsius, Fahrenheit, Kelvin) instantly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolkaro.github.io/unit-converter.html">
+<meta property="og:image" content="https://toolkaro.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unit Converter — Length, Weight and Temperature | SSToolHub">
+<meta name="twitter:description" content="Free unit converter. Convert length (km, miles, feet, inches), weight (kg, pounds, tola, maund) and temperature (Celsius, Fahrenheit, Kelvin) instantly.">
+<meta name="twitter:image" content="https://toolkaro.github.io/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="theme-color" content="#0b3d2e">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unit Converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/unit-converter.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many grams are in a tola?", "acceptedAnswer": {"@type": "Answer", "text": "One tola is 11.6638 grams. So 2 tola of gold is 23.33 grams, and the silver nisab of 52.5 tola is 612.36 grams."}}, {"@type": "Question", "name": "What is the difference between an ounce and a troy ounce?", "acceptedAnswer": {"@type": "Answer", "text": "An ordinary (avoirdupois) ounce is 28.35 grams; a troy ounce, used for gold and silver worldwide, is 31.1035 grams (2.667 tola). Mixing them up misprices precious metal by about 9%."}}, {"@type": "Question", "name": "How do I convert Fahrenheit to Celsius?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract 32, then multiply by 5/9. For example 350\u00b0F is (350 \u2212 32) \u00d7 5/9 = 176.7\u00b0C. To go the other way, multiply Celsius by 9/5 and add 32."}}, {"@type": "Question", "name": "How many kilograms in a maund?", "acceptedAnswer": {"@type": "Answer", "text": "One maund is 40 kilograms \u2014 still used in grain and wholesale markets in Pakistan."}}, {"@type": "Question", "name": "Is 1 mile really 1.6 km?", "acceptedAnswer": {"@type": "Answer", "text": "Approximately: exactly 1.60934 km. The rounded 1.6 is fine for a journey, but use the full figure for land, construction or anything measured."}}, {"@type": "Question", "name": "Why does the page show all units at once?", "acceptedAnswer": {"@type": "Answer", "text": "So one conversion answers the follow-ups too: convert kilometres and you immediately see the miles, metres, feet and inches without converting again."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolkaro.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converter", "item": "https://toolkaro.github.io/unit-converter.html"}]}</script>
+<meta name="google-adsense-account" content="ca-pub-8941167698354547">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8941167698354547" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">SSToolHub<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › Unit Converter</div><h1 class="page">Unit Converter — length, weight and temperature</h1><p class="sub">Kilometres to miles, kilograms to pounds, tola to grams, Celsius to Fahrenheit — converted as you type.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Category</label>
+ <select id="ucCat"><option value="length">Length</option><option value="weight">Weight</option><option value="temp">Temperature</option></select>
+ <label>Value</label>
+ <input type="number" id="ucVal" value="1" step="any">
+ <label>From</label>
+ <select id="ucFrom"></select>
+ <label>To</label>
+ <select id="ucTo"></select>
+ <div class="result show" id="res" style="margin-top:18px"></div>
+ </div><div class="panel prose">
+ <h2>How to use this converter</h2>
+ <p>Pick a category — length, weight or temperature — type a value, and choose the two units. The result updates as you type, and the page also shows the same value in every other unit of that category, so one conversion answers the follow-up questions too: convert 5 kilometres and you see the miles, metres, feet and inches in the same table.</p>
+ <h2>Length: the units people actually mix up</h2>
+ <p>Pakistan officially uses the metric system — kilometres on road signs, metres and centimetres in construction — but feet, inches and miles survive everywhere: in property (a 5-marla plot is usually quoted in feet), in height ("5 foot 9"), in screens (a 55-inch TV), and in anything imported from the US or UK. The exact anchors are: <b>1 mile = 1.60934 km; 1 foot = 30.48 cm; 1 inch = 2.54 cm</b>. A worked example: a plot 60 feet long is 60 × 0.3048 = <b>18.29 metres</b>. A 5 km run is 5 ÷ 1.60934 = <b>3.11 miles</b>. And a 6-foot person is 6 × 30.48 = <b>182.9 cm</b> — which is why "6 foot" and "183 cm" describe the same person.</p>
+ <h2>Weight: kilograms, pounds, tola and maund</h2>
+ <p>Kitchen scales and body weight are metric (kilograms and grams), but gym weights, imported goods and online shopping still quote <b>pounds: 1 kg = 2.20462 lb</b>, so a 10 kg parcel is 22.05 lb. Gold and silver in Pakistan are weighed in <b>tola: 1 tola = 11.6638 grams</b>, which is also why the silver nisab of 52.5 tola equals 612.36 grams. The old wholesale unit <b>maund = 40 kg</b> still appears in grain markets. A worked example: a gold chain of 2 tola weighs 2 × 11.6638 = <b>23.33 grams</b>. Do not confuse the tola with the ounce: the <b>avoirdupois ounce</b> used for ordinary goods is 28.35 grams, while the <b>troy ounce</b> used for precious metals worldwide is 31.1035 grams (2.667 tola) — mixing them up misprices gold by about 9%.</p>
+ <h2>Temperature: Celsius, Fahrenheit and Kelvin</h2>
+ <p>Weather and cooking in Pakistan use Celsius; the US uses Fahrenheit; science uses Kelvin. The conversions are: <b>°F = °C × 9/5 + 32</b> and <b>K = °C + 273.15</b>. The anchor points everyone should know: water freezes at <b>0°C = 32°F = 273.15 K</b> and boils at <b>100°C = 212°F = 373.15 K</b>; normal body temperature is 37°C = 98.6°F. A worked example: a recipe that says bake at 350°F means 350 − 32 = 318, × 5/9 = <b>176.7°C</b> — in practice, a 180°C oven. Note that temperature <i>differences</i> convert differently from temperatures: a rise of 10°C is a rise of 18°F, because the 32-degree offset cancels out when you subtract.</p>
+ <h2>Common mistakes</h2>
+ <ul><li><b>Rounding the conversion factor too early.</b> Using 1 mile = 1.6 km is fine for a road trip, but over 500 miles it is off by nearly 5 km. Use the full factor for anything measured, like land or construction.</li>
+ <li><b>Swapping the direction.</b> Kilometres to miles means divide by 1.60934; miles to kilometres means multiply. If the answer looks absurd (a 5 km run becoming 8 miles), you have the direction backwards.</li>
+ <li><b>Tola vs ounce for gold.</b> Quoting a gold price "per ounce" without saying which ounce changes the price by 9%. Jewellers in Pakistan quote per tola; international spot prices are per troy ounce.</li>
+ <li><b>Fahrenheit vs Celsius in medicine.</b> A fever of 101°F is 38.3°C — high, but not the 101° that a Celsius reading would imply. Always check which scale a thermometer or a recipe is using before acting on the number.</li></ul>
+ <h2>Why conversions go wrong in real life</h2>
+ <p>Almost every famous conversion disaster is a unit mistake, not a maths mistake: the Mars Climate Orbiter in 1999 was lost because one team used pounds of force and another used newtons — a $125 million unit error. Closer to home, the errors are smaller but just as real: medicine dosed in the wrong unit, a plot measured in feet but priced per metre, a gold chain weighed in tola but paid for at an ounce rate. The safe habit is the one this converter enforces: name both units before you trust any number.</p>
+ <h2>Gold weights: tola, masha and ratti</h2>
+ <p>Gold in Pakistan is weighed in a chain of traditional units that every jeweller still uses: <b>1 tola = 12 masha, and 1 masha = 8 ratti</b>, so one tola is 96 ratti. In grams, that means 1 masha = 11.6638 ÷ 12 = <b>0.972 grams</b>, and 1 ratti = <b>0.1215 grams</b>. A worked example: a ring weighing 1 tola and 4 masha is 1.333 tola, which is 1.333 × 11.6638 = <b>15.55 grams</b>. Jewellers quote making charges per tola or per gram, so converting your jewellery's weight into grams before asking the price lets you compare shops fairly — and lets you check a bill: weight in grams × today's gold rate per gram, plus making charges, should land close to the quoted total. If it does not, ask which weight and which rate the shop used before paying.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: How many grams are in a tola?</b><p>One tola is 11.6638 grams. So 2 tola of gold is 23.33 grams, and the silver nisab of 52.5 tola is 612.36 grams.</p></div><div class="faq"><b>Q: What is the difference between an ounce and a troy ounce?</b><p>An ordinary (avoirdupois) ounce is 28.35 grams; a troy ounce, used for gold and silver worldwide, is 31.1035 grams (2.667 tola). Mixing them up misprices precious metal by about 9%.</p></div><div class="faq"><b>Q: How do I convert Fahrenheit to Celsius?</b><p>Subtract 32, then multiply by 5/9. For example 350°F is (350 − 32) × 5/9 = 176.7°C. To go the other way, multiply Celsius by 9/5 and add 32.</p></div><div class="faq"><b>Q: How many kilograms in a maund?</b><p>One maund is 40 kilograms — still used in grain and wholesale markets in Pakistan.</p></div><div class="faq"><b>Q: Is 1 mile really 1.6 km?</b><p>Approximately: exactly 1.60934 km. The rounded 1.6 is fine for a journey, but use the full figure for land, construction or anything measured.</p></div><div class="faq"><b>Q: Why does the page show all units at once?</b><p>So one conversion answers the follow-ups too: convert kilometres and you immediately see the miles, metres, feet and inches without converting again.</p></div></div></div>
+<footer class="site">
+<div style="max-width:1000px;margin:0 auto 22px;text-align:left">
+<h2 style="color:#fff;font-size:19px;margin-bottom:10px">Free Tools</h2>
+<p style="line-height:2"><a href="/age-calculator.html">Age Calculator</a> · <a href="/compress-image-to-kb.html">Compress Image to KB</a> · <a href="/image-compressor.html">Image Compressor</a> · <a href="/passport-size-photo-maker.html">Passport Size Photo Maker</a> · <a href="/marks-percentage-calculator.html">Marks Percentage Calculator</a> · <a href="/percentage-calculator.html">Percentage Calculator</a> · <a href="/password-generator.html">Password Generator</a> · <a href="/qr-code-generator.html">QR Code Generator</a> · <a href="/word-counter.html">Word Counter</a> · <a href="/emi-calculator.html">EMI Calculator</a> · <a href="/date-difference-calculator.html">Date Difference Calculator</a> · <a href="/bmi-calculator.html">BMI Calculator</a> · <a href="/currency-converter.html">Currency Converter</a> · <a href="/zakat-calculator.html">Zakat Calculator</a> · <a href="/unit-converter.html">Unit Converter</a> · <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> · <a href="/image-resizer.html">Image Resizer</a></p>
+<p style="margin-top:10px;line-height:2"><b style="color:#fff">Guides:</b> <a href="/how-to-compress-photo-to-exact-kb.html">Compress a Photo to an Exact KB Size</a> · <a href="/how-to-make-passport-photo-at-home.html">Make a Passport Photo at Home</a> · <a href="/how-emi-is-calculated.html">How EMI Is Calculated</a> · <a href="/how-to-create-a-strong-password.html">Create a Strong Password</a> · <a href="/how-to-calculate-percentage-from-marks.html">Calculate Percentage from Marks</a></p>
+</div>
+<p><b style="color:#fff">SSToolHub</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/terms.html">Terms of Use</a>·<a href="/disclaimer.html">Disclaimer</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+<p style="margin-top:8px;color:#8fb8a6;font-size:13px">Featured on <a href="https://fazier.com" target="_blank" rel="noopener" style="color:#8fb8a6;margin:0;text-decoration:underline">Fazier</a></p>
+</footer>
+<script>
+ const UC={
+  length:{base:'m',units:{'Kilometres (km)':1000,'Metres (m)':1,'Centimetres (cm)':0.01,'Millimetres (mm)':0.001,'Miles (mi)':1609.34,'Yards (yd)':0.9144,'Feet (ft)':0.3048,'Inches (in)':0.0254}},
+  weight:{base:'kg',units:{'Kilograms (kg)':1,'Grams (g)':0.001,'Pounds (lb)':0.45359237,'Ounces (oz)':0.0283495231,'Tola':0.0116638,'Maund':40,'Tonnes (t)':1000}},
+  temp:{units:['Celsius (°C)','Fahrenheit (°F)','Kelvin (K)']}};
+ function ucFill(){
+   const cat=document.getElementById('ucCat').value;
+   const f=document.getElementById('ucFrom'),t=document.getElementById('ucTo');
+   const names=cat==='temp'?UC.temp.units:Object.keys(UC[cat].units);
+   f.innerHTML=names.map(n=>'<option>'+n+'</option>').join('');
+   t.innerHTML=names.map(n=>'<option>'+n+'</option>').join('');
+   t.selectedIndex=names.length>1?1:0; ucCalc();}
+ function ucTemp(v,from,to){
+   let c=from.startsWith('Celsius')?v:from.startsWith('Fahrenheit')?(v-32)*5/9:v-273.15;
+   return to.startsWith('Celsius')?c:to.startsWith('Fahrenheit')?c*9/5+32:c+273.15;}
+ function ucCalc(){
+   const res=document.getElementById('res');
+   const cat=document.getElementById('ucCat').value;
+   const v=parseFloat(document.getElementById('ucVal').value);
+   const f=document.getElementById('ucFrom').value,t=document.getElementById('ucTo').value;
+   if(isNaN(v)){res.innerHTML='Enter a value to convert.';return;}
+   let out,rows='';
+   if(cat==='temp'){out=ucTemp(v,f,t);rows='';}
+   else{
+     const u=UC[cat].units, base=v*u[f], outVal=base/u[t]; out=outVal;
+     rows='<table>'+Object.keys(u).map(n=>'<tr><td>'+n+'</td><td>'+(base/u[n]).toLocaleString('en-US',{maximumFractionDigits:4})+'</td></tr>').join('')+'</table>';}
+   const fmt=x=>x.toLocaleString('en-US',{maximumFractionDigits:4});
+   res.innerHTML='<div class="big">'+fmt(v)+' '+f+' = '+fmt(out)+' '+t+'</div>'+rows;}
+ ['ucCat','ucVal','ucFrom','ucTo'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{if(id==='ucCat'){ucFill();}else{ucCalc();}}));
+ document.getElementById('ucCat').addEventListener('change',ucFill);
+ ucFill();
+ </script>
+</body>
+</html>
