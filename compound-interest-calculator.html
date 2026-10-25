@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest Calculator — How Savings Grow Over Time | SSToolHub</title>
+<meta name="description" content="Free compound interest calculator. Enter your savings, interest rate and years to see how much your money grows, the profit earned, and a year-by-year breakdown.">
+<link rel="canonical" href="https://toolkaro.github.io/compound-interest-calculator.html">
+<meta property="og:title" content="Compound Interest Calculator — How Savings Grow Over Time | SSToolHub">
+<meta property="og:description" content="Free compound interest calculator. Enter your savings, interest rate and years to see how much your money grows, the profit earned, and a year-by-year breakdown.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolkaro.github.io/compound-interest-calculator.html">
+<meta property="og:image" content="https://toolkaro.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compound Interest Calculator — How Savings Grow Over Time | SSToolHub">
+<meta name="twitter:description" content="Free compound interest calculator. Enter your savings, interest rate and years to see how much your money grows, the profit earned, and a year-by-year breakdown.">
+<meta name="twitter:image" content="https://toolkaro.github.io/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="theme-color" content="#0b3d2e">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Compound Interest Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/compound-interest-calculator.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between simple and compound interest?", "acceptedAnswer": {"@type": "Answer", "text": "Simple interest pays only on the starting amount. Compound interest pays on the starting amount plus all interest already earned, so growth accelerates. On Rs 100,000 at 12% for 5 years, simple interest gives Rs 60,000 profit; yearly compounding gives Rs 76,234."}}, {"@type": "Question", "name": "How often should interest compound?", "acceptedAnswer": {"@type": "Answer", "text": "More often is better, but the effect is modest next to the rate itself: on the example above, monthly compounding beats yearly by only about Rs 5,400 over 5 years. A higher rate matters far more than a higher frequency."}}, {"@type": "Question", "name": "What is the Rule of 72?", "acceptedAnswer": {"@type": "Answer", "text": "Divide 72 by the yearly rate to estimate doubling time: at 12%, money roughly doubles in 6 years; at 9%, in 8 years. It is an approximation, not an exact formula."}}, {"@type": "Question", "name": "Does this include tax?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 the figures are gross. Profit on bank deposits and funds is usually taxed, so your net return will be a little lower."}}, {"@type": "Question", "name": "Can I use this for a loan?", "acceptedAnswer": {"@type": "Answer", "text": "The same formula describes debt growing against you. For fixed monthly loan payments, use the EMI Calculator instead, which shows the monthly payment and total interest."}}, {"@type": "Question", "name": "Why does growth speed up in later years?", "acceptedAnswer": {"@type": "Answer", "text": "Because each year's interest is calculated on a larger balance. In the worked example, year 1 adds Rs 12,000 but year 5 adds about Rs 18,900 \u2014 the same 12% rate, applied to more money."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolkaro.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Compound Interest Calculator", "item": "https://toolkaro.github.io/compound-interest-calculator.html"}]}</script>
+<meta name="google-adsense-account" content="ca-pub-8941167698354547">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8941167698354547" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">SSToolHub<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › Compound Interest Calculator</div><h1 class="page">Compound Interest Calculator — how savings grow over time</h1><p class="sub">Your money earning interest, and then interest on the interest — the effect that makes time your biggest asset.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Starting amount (Rs)</label>
+ <input type="number" id="ciP" placeholder="e.g. 100000" min="0">
+ <label>Yearly interest / profit rate (%)</label>
+ <input type="number" id="ciR" placeholder="e.g. 12" step="0.1" min="0">
+ <label>Number of years</label>
+ <input type="number" id="ciY" placeholder="e.g. 5" min="1" step="1">
+ <label>Compounding</label>
+ <select id="ciN"><option value="1">Yearly</option><option value="2">Half-yearly</option><option value="4">Quarterly</option><option value="12" selected>Monthly</option></select>
+ <button class="btn" onclick="calcCi()">Calculate Growth</button>
+ <div class="result" id="res"></div>
+ </div><div class="panel prose">
+ <h2>Simple interest vs compound interest</h2>
+ <p>Simple interest pays only on the money you started with. Compound interest pays on your starting money <i>plus</i> all the interest already earned — interest on interest. The difference looks small in year one and enormous by year ten, which is why compounding is called the most powerful force in saving: time does more work than the rate does. A bank savings account, a prize-bond-free deposit scheme, a mutual fund or a business reinvesting its profit all grow by compounding; a loan you do not repay grows the same way against you, which is why the same maths appears on both sides of money.</p>
+ <h2>The compound interest formula</h2>
+ <p>Final amount A = P × (1 + r/n)<sup>nt</sup>, where P is the starting amount, r is the yearly rate as a decimal, n is how many times a year interest is added, and t is the number of years. With yearly compounding (n = 1) the formula shortens to A = P × (1 + r)<sup>t</sup>. This calculator applies the full formula and also shows the growth year by year, so you can see the curve bending upwards — the later years add far more than the early ones, because each year's interest is calculated on a bigger balance.</p>
+ <h2>A worked example</h2>
+ <p>Start with <b>Rs 100,000</b> at <b>12% per year</b>, compounded yearly, for <b>5 years</b>. Year 1: 100,000 × 1.12 = 112,000. Year 2: 112,000 × 1.12 = 125,440. Year 3: 140,493. Year 4: 157,352. Year 5: <b>176,234</b>. Total profit: <b>Rs 76,234</b>. Compare simple interest on the same deal: 12% of 100,000 is 12,000 a year, five times = Rs 60,000 profit, final Rs 160,000. Compounding added an extra <b>Rs 16,234</b> for doing nothing extra — and the gap widens every year after that. With monthly compounding instead of yearly, the same 5 years give about Rs 181,670, because interest starts earning its own interest twelve times a year instead of once.</p>
+ <h2>The Rule of 72 — doubling time in your head</h2>
+ <p>Divide 72 by the yearly rate and you get roughly how many years it takes money to double. At 12%, 72 ÷ 12 = <b>6 years</b>. At 9%, about 8 years. At 6%, about 12 years. It is an approximation, but a useful one: it turns an abstract rate into a sentence you can feel — "my money doubles every six years at this rate" — and it makes the cost of waiting visible. Starting five years later at 12% does not just lose five years of interest; it loses the doubling those five years would have produced on everything after them.</p>
+ <h2>What compounding frequency really does</h2>
+ <p>More frequent compounding always helps, but by less than people expect. On Rs 100,000 at 12% for 5 years: yearly gives Rs 176,234; half-yearly about Rs 179,085; quarterly about Rs 180,611; monthly about Rs 181,670. The jump from yearly to monthly is about Rs 5,400 — real money, but small next to the Rs 76,234 that time and rate produced. The lesson: do not chase a scheme because it compounds daily if its rate is lower. A full percentage point of rate beats any compounding frequency on offer.</p>
+ <h2>The other side: compounding debt</h2>
+ <p>The same curve that grows savings grows unpaid debt. A credit-card balance or a loan left to roll up compounds against you at rates far higher than any savings account pays — which is why minimum payments barely move a card balance: most of each payment is interest, and the interest itself starts earning interest. If you have both savings earning 12% and debt costing 30%+, paying the debt first is mathematically better than saving, because no safe investment reliably beats the rate the debt charges you. Our <a href="/emi-calculator.html">EMI Calculator</a> shows the loan side of the same maths, month by month.</p>
+ <h2>Common mistakes</h2>
+ <ul><li><b>Forgetting tax on profit.</b> Bank profit and fund gains are usually taxed (in Pakistan, withholding applies to profit on debt). The calculator shows gross growth; your net will be a little lower.</li>
+ <li><b>Comparing a monthly rate with a yearly rate.</b> A "1% monthly" return is not 12% yearly — compounded, it is (1.01)<sup>12</sup> − 1 = 12.68%. Always convert to the same period before comparing.</li>
+ <li><b>Ignoring inflation.</b> If prices rise 10% a year and your money grows 12%, your real gain is only about 2%. Growth that merely matches inflation is standing still in what money buys.</li>
+ <li><b>Stopping the clock.</b> Compounding rewards patience most of all. Withdrawing in year two throws away the steep part of the curve, which is always at the end.</li></ul>
+ <h2>The cost of starting late — a tale of two savers</h2>
+ <p>The most famous illustration of compounding compares two savers at 10% a year. Saver A puts aside Rs 10,000 a year from age 25 to 35 — ten payments, Rs 100,000 in total — and then stops, leaving the money alone until 65. At 35 the pot is about Rs 159,374; left to compound for 30 more years it grows to roughly <b>Rs 2,780,000</b>. Saver B waits until 35 and then puts aside Rs 10,000 a year all the way to 65 — thirty payments, Rs 300,000 in total, three times what A contributed. B's pot at 65 is about <b>Rs 1,645,000</b>. A ends up with over a million rupees more despite contributing a third as much, purely because A's money had ten extra years to compound. The moral is not that saving late is pointless — B still turned 300,000 into 1.6 million — but that the earliest years are the most valuable ones you will ever have, and no later effort fully buys them back.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: What is the difference between simple and compound interest?</b><p>Simple interest pays only on the starting amount. Compound interest pays on the starting amount plus all interest already earned, so growth accelerates. On Rs 100,000 at 12% for 5 years, simple interest gives Rs 60,000 profit; yearly compounding gives Rs 76,234.</p></div><div class="faq"><b>Q: How often should interest compound?</b><p>More often is better, but the effect is modest next to the rate itself: on the example above, monthly compounding beats yearly by only about Rs 5,400 over 5 years. A higher rate matters far more than a higher frequency.</p></div><div class="faq"><b>Q: What is the Rule of 72?</b><p>Divide 72 by the yearly rate to estimate doubling time: at 12%, money roughly doubles in 6 years; at 9%, in 8 years. It is an approximation, not an exact formula.</p></div><div class="faq"><b>Q: Does this include tax?</b><p>No — the figures are gross. Profit on bank deposits and funds is usually taxed, so your net return will be a little lower.</p></div><div class="faq"><b>Q: Can I use this for a loan?</b><p>The same formula describes debt growing against you. For fixed monthly loan payments, use the EMI Calculator instead, which shows the monthly payment and total interest.</p></div><div class="faq"><b>Q: Why does growth speed up in later years?</b><p>Because each year's interest is calculated on a larger balance. In the worked example, year 1 adds Rs 12,000 but year 5 adds about Rs 18,900 — the same 12% rate, applied to more money.</p></div></div></div>
+<footer class="site">
+<div style="max-width:1000px;margin:0 auto 22px;text-align:left">
+<h2 style="color:#fff;font-size:19px;margin-bottom:10px">Free Tools</h2>
+<p style="line-height:2"><a href="/age-calculator.html">Age Calculator</a> · <a href="/compress-image-to-kb.html">Compress Image to KB</a> · <a href="/image-compressor.html">Image Compressor</a> · <a href="/passport-size-photo-maker.html">Passport Size Photo Maker</a> · <a href="/marks-percentage-calculator.html">Marks Percentage Calculator</a> · <a href="/percentage-calculator.html">Percentage Calculator</a> · <a href="/password-generator.html">Password Generator</a> · <a href="/qr-code-generator.html">QR Code Generator</a> · <a href="/word-counter.html">Word Counter</a> · <a href="/emi-calculator.html">EMI Calculator</a> · <a href="/date-difference-calculator.html">Date Difference Calculator</a> · <a href="/bmi-calculator.html">BMI Calculator</a> · <a href="/currency-converter.html">Currency Converter</a> · <a href="/zakat-calculator.html">Zakat Calculator</a> · <a href="/unit-converter.html">Unit Converter</a> · <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> · <a href="/image-resizer.html">Image Resizer</a></p>
+<p style="margin-top:10px;line-height:2"><b style="color:#fff">Guides:</b> <a href="/how-to-compress-photo-to-exact-kb.html">Compress a Photo to an Exact KB Size</a> · <a href="/how-to-make-passport-photo-at-home.html">Make a Passport Photo at Home</a> · <a href="/how-emi-is-calculated.html">How EMI Is Calculated</a> · <a href="/how-to-create-a-strong-password.html">Create a Strong Password</a> · <a href="/how-to-calculate-percentage-from-marks.html">Calculate Percentage from Marks</a></p>
+</div>
+<p><b style="color:#fff">SSToolHub</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/terms.html">Terms of Use</a>·<a href="/disclaimer.html">Disclaimer</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+<p style="margin-top:8px;color:#8fb8a6;font-size:13px">Featured on <a href="https://fazier.com" target="_blank" rel="noopener" style="color:#8fb8a6;margin:0;text-decoration:underline">Fazier</a></p>
+</footer>
+<script>
+ function calcCi(){
+   const res=document.getElementById('res');
+   const P=parseFloat(document.getElementById('ciP').value);
+   const R=parseFloat(document.getElementById('ciR').value);
+   const Y=parseInt(document.getElementById('ciY').value);
+   const n=parseInt(document.getElementById('ciN').value);
+   if(!(P>=0)||isNaN(R)||!(Y>0)||isNaN(n)){res.className='result show';res.innerHTML='Please fill all fields correctly.';return;}
+   const r=R/100;
+   const A=P*Math.pow(1+r/n,n*Y);
+   const f=x=>Math.round(x).toLocaleString('en-US');
+   let rows='';
+   for(let y=1;y<=Y;y++){const ay=P*Math.pow(1+r/n,n*y);rows+='<tr><td>After year '+y+'</td><td>'+f(ay)+'</td></tr>';}
+   res.className='result show';
+   res.innerHTML='<div class="big">Final amount: Rs '+f(A)+'</div><table>'+
+   '<tr><td>Starting amount</td><td>Rs '+f(P)+'</td></tr>'+
+   '<tr><td>Total profit / interest</td><td>Rs '+f(A-P)+'</td></tr>'+
+   '<tr><td>Growth</td><td>'+(P>0?((A/P-1)*100).toFixed(1):'0')+'%</td></tr></table>'+
+   '<table style="margin-top:10px">'+rows+'</table>'+
+   '<p class="small" style="margin-top:8px">Gross figures before any tax on profit. Rule of 72: at '+R+'% your money roughly doubles in '+(R>0?Math.round(72/R):'—')+' years.</p>';}
+ </script>
+</body>
+</html>
