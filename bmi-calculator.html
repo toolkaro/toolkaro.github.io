@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator — Body Mass Index and Healthy Weight Range | SSToolHub</title>
+<meta name="description" content="Free BMI calculator. Enter your height and weight to get your Body Mass Index, your weight category, and the healthy weight range for your height.">
+<link rel="canonical" href="https://toolkaro.github.io/bmi-calculator.html">
+<meta property="og:title" content="BMI Calculator — Body Mass Index and Healthy Weight Range | SSToolHub">
+<meta property="og:description" content="Free BMI calculator. Enter your height and weight to get your Body Mass Index, your weight category, and the healthy weight range for your height.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolkaro.github.io/bmi-calculator.html">
+<meta property="og:image" content="https://toolkaro.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BMI Calculator — Body Mass Index and Healthy Weight Range | SSToolHub">
+<meta name="twitter:description" content="Free BMI calculator. Enter your height and weight to get your Body Mass Index, your weight category, and the healthy weight range for your height.">
+<meta name="twitter:image" content="https://toolkaro.github.io/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="theme-color" content="#0b3d2e">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#0e9f6e;--dark:#0b3d2e;--ink:#12211b;--mut:#5a6f66;--bg:#f6faf8;--card:#ffffff;--line:#dcebe4;--amber:#ffb020}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+header.site{background:var(--dark);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+.logo{font-size:24px;font-weight:800;color:#fff}.logo span{color:var(--amber)}
+header.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:#cfe8dc;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--dark),#0e6e4c);color:#fff;padding:44px 18px 36px;text-align:center}
+.hero h1{font-size:32px;margin-bottom:8px}.hero p{color:#d5efe3;font-size:17px}
+.hero .search{max-width:520px;margin:20px auto 0;display:flex}
+.hero .search input{flex:1;padding:13px 16px;border:none;border-radius:10px 0 0 10px;font-size:16px}
+.hero .search span{background:var(--amber);color:#231a00;padding:13px 18px;border-radius:0 10px 10px 0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;color:var(--ink);transition:.15s}
+.tool-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(11,61,46,.10)}
+.tool-card .ic{font-size:30px}
+.tool-card h3{font-size:17px;margin:8px 0 4px;color:var(--dark)}
+.tool-card p{font-size:13.5px;color:var(--mut)}
+h1.page{font-size:27px;color:var(--dark);margin:6px 0 4px}
+.sub{color:var(--mut);margin-bottom:18px}
+.crumbs{font-size:13px;color:var(--mut);margin-top:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:14.5px}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.btn:hover{background:#0b855c}
+.btn.alt{background:var(--dark)}
+.result{background:#eafaf2;border:1.5px solid var(--green);border-radius:12px;padding:16px 18px;margin-top:18px;display:none}
+.result.show{display:block}
+.result .big{font-size:26px;font-weight:800;color:var(--dark)}
+.result table{width:100%;border-collapse:collapse;margin-top:8px}
+.result td{padding:5px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.result td:last-child{text-align:right;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--green)}
+input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--green);border-radius:9px;background:#f2fbf7}
+.chk{display:flex;gap:8px;align-items:center;margin:7px 0;font-weight:500}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.prose h2{font-size:21px;color:var(--dark);margin:22px 0 8px}
+.prose p,.prose li{color:#33463d;font-size:15.5px}
+.prose ul,.prose ol{margin:6px 0 6px 20px}
+.faq{border-top:1px solid var(--line);padding:12px 2px}
+.faq b{color:var(--dark)}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+footer.site{background:var(--dark);color:#cfe8dc;padding:28px 18px;text-align:center;font-size:14px;margin-top:10px}
+footer.site a{color:#fff;margin:0 8px}
+canvas{max-width:100%}
+img.prev{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--mut)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "BMI Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://toolkaro.github.io/bmi-calculator.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good BMI?", "acceptedAnswer": {"@type": "Answer", "text": "For most adults, 18.5 to 24.9 is the normal range. South Asian adults may face increased health risk from BMI 23 onwards, so treat 23\u201325 as a reason to check waist size and blood sugar, not as a clean pass."}}, {"@type": "Question", "name": "How is BMI calculated?", "acceptedAnswer": {"@type": "Answer", "text": "BMI = weight in kg divided by height in metres squared. For example, 70 kg at 1.75 m gives 70 \u00f7 (1.75 \u00d7 1.75) = 22.9, which is normal."}}, {"@type": "Question", "name": "Is BMI accurate for athletes?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Muscle weighs more than fat, so a muscular person can score as overweight or obese while being very fit. BMI is a screening number, not a body-fat measurement."}}, {"@type": "Question", "name": "Can children use this calculator?", "acceptedAnswer": {"@type": "Answer", "text": "The formula works, but the adult categories do not apply to children and teenagers. For ages 2\u201319, BMI is judged against age- and sex-specific percentile charts \u2014 ask a paediatrician."}}, {"@type": "Question", "name": "What weight should I aim for?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator shows your healthy weight range \u2014 the weights that put your BMI between 18.5 and 24.9 for your height. Aim inside that range rather than at one exact number."}}, {"@type": "Question", "name": "Does BMI change with age?", "acceptedAnswer": {"@type": "Answer", "text": "The formula does not include age, but its meaning shifts: after about 65, muscle loss makes a slightly higher BMI less worrying, and strength and mobility matter more than the band."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolkaro.github.io/"}, {"@type": "ListItem", "position": 2, "name": "BMI Calculator", "item": "https://toolkaro.github.io/bmi-calculator.html"}]}</script>
+<meta name="google-adsense-account" content="ca-pub-8941167698354547">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8941167698354547" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+<a class="logo" href="/">SSToolHub<span>.</span></a>
+<nav><a href="/">All Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</header>
+<div class="wrap" style="padding-bottom:0"><div class="crumbs"><a href="/">Home</a> › BMI Calculator</div><h1 class="page">BMI Calculator — Body Mass Index and healthy weight range</h1><p class="sub">Your BMI in one click, plus the weight range that counts as healthy for your height.</p></div><div class="wrap" style="padding-top:6px"><div class="panel">
+ <label>Units</label>
+ <select id="bmiUnit"><option value="metric">Metric — kg and cm</option><option value="imperial">Imperial — pounds, feet and inches</option></select>
+ <div id="metricBox">
+ <label>Weight (kg)</label>
+ <input type="number" id="wKg" placeholder="e.g. 70" min="1" step="0.1">
+ <label>Height (cm)</label>
+ <input type="number" id="hCm" placeholder="e.g. 175" min="30" step="0.1">
+ </div>
+ <div id="impBox" style="display:none">
+ <label>Weight (pounds)</label>
+ <input type="number" id="wLb" placeholder="e.g. 154" min="1" step="0.1">
+ <label>Height (feet)</label>
+ <input type="number" id="hFt" placeholder="e.g. 5" min="1" step="1">
+ <label>Height (inches)</label>
+ <input type="number" id="hIn" placeholder="e.g. 9" min="0" max="11" step="1">
+ </div>
+ <button class="btn" onclick="calcBmi()">Calculate My BMI</button>
+ <div class="result" id="res"></div>
+ </div><div class="panel prose">
+ <h2>What is BMI?</h2>
+ <p>BMI — Body Mass Index — is a single number that relates your weight to your height. Doctors and health organisations around the world use it as a quick screening check: it sorts adults into broad weight categories in seconds, without any blood test or machine. It does not measure your body fat directly, and it is not a diagnosis. It is a starting point — a number that tells you whether your weight is in the range associated with the lowest health risk for your height, or whether it is worth looking closer.</p>
+ <h2>The BMI formula</h2>
+ <p>BMI = weight in kilograms ÷ (height in metres × height in metres). In imperial units the same result comes from BMI = 703 × weight in pounds ÷ (height in inches × height in inches). The 703 is simply the conversion constant that makes the two systems agree. This calculator does the arithmetic for both systems, so you can enter whichever units you know.</p>
+ <h2>A worked example</h2>
+ <p>Take a person who weighs <b>70 kg</b> and is <b>175 cm</b> tall. Height in metres is 1.75, and 1.75 × 1.75 = 3.0625. BMI = 70 ÷ 3.0625 = <b>22.9</b>. That falls in the normal range. The healthy weight range for 175 cm is 18.5 × 3.0625 = <b>56.7 kg</b> at the lower end and 24.9 × 3.0625 = <b>76.3 kg</b> at the upper end — so this person could gain about 6 kg and still be inside the normal band, or lose about 13 kg before dropping below it. That range is often more useful than the single number, because weight naturally moves a few kilograms up and down through the year.</p>
+ <h2>The standard BMI categories</h2>
+ <p>The World Health Organization categories for adults are: <b>below 18.5 — underweight; 18.5 to 24.9 — normal; 25.0 to 29.9 — overweight; 30.0 and above — obese</b> (with 30–34.9 class I, 35–39.9 class II, and 40+ class III). These bands come from decades of population data linking BMI to the risk of diabetes, heart disease and joint problems. The risk does not jump suddenly at 25.0 — it rises gradually across the scale — but the bands give a shared language: when a doctor says "overweight", this is the scale they mean.</p>
+ <h2>One important note for South Asian adults</h2>
+ <p>Research has repeatedly found that people of South Asian descent tend to carry more body fat — and to develop diabetes and heart disease — at lower BMIs than people of European descent. For that reason, several health bodies use lower action points for Asian adults: <b>23.0 and above as increased risk (overweight range) and 27.5 and above as high risk (obese range)</b>. This calculator shows the standard WHO bands, because they are the ones most forms and clinics still quote — but if you are Pakistani and your BMI is between 23 and 25, do not treat that as a clean bill of health. A waist measurement and a blood sugar check say more at that point than the BMI band alone, and a doctor can put the number in context for you.</p>
+ <h2>What BMI gets wrong — and when to ignore it</h2>
+ <ul><li><b>Muscular people.</b> Muscle is denser than fat. A bodybuilder or a labourer with heavy muscle can score "overweight" or even "obese" while carrying very little fat. BMI cannot see the difference.</li>
+ <li><b>Older adults.</b> After about age 65, some muscle loss is normal, and a slightly higher BMI is often less worrying than in a younger adult. Frailty and strength matter more than the band.</li>
+ <li><b>Pregnancy.</b> BMI bands do not apply during pregnancy, when weight gain is expected and healthy.</li>
+ <li><b>Children and teenagers.</b> For ages 2–19, BMI is judged against age- and sex-specific percentile charts, not the adult bands. This calculator is for adults.</li>
+ <li><b>Where the fat sits.</b> Fat around the waist (belly fat) carries more risk than fat on the hips and legs. Two people with the same BMI can have very different risk if one carries it around the middle — which is why doctors also measure waist circumference.</li></ul>
+ <h2>Using your result sensibly</h2>
+ <p>If your BMI is in the normal range, the useful habit is simply to re-check every few months and watch the trend rather than one reading. If it is above the range, the number to focus on is the healthy weight range this calculator shows: it turns a vague "lose weight" into a concrete target, for example "from 92 kg down to the 76 kg end of my range". Crash diets that chase fast drops usually fail; a steady loss of about half a kilogram a week, through smaller portions and daily walking, is the pace doctors recommend. If your BMI is below the range, the same logic applies in reverse: the lower end of the range is your target, reached with regular meals and strength-building activity rather than junk food. In both directions, a single BMI reading is never a reason to panic — but a BMI far outside the range, or one moving steadily in the wrong direction, is a good reason to talk to a doctor, who can check blood pressure, blood sugar and cholesterol alongside it.</p>
+ </div><div class="panel prose"><h2>Frequently Asked Questions</h2><div class="faq"><b>Q: What is a good BMI?</b><p>For most adults, 18.5 to 24.9 is the normal range. South Asian adults may face increased health risk from BMI 23 onwards, so treat 23–25 as a reason to check waist size and blood sugar, not as a clean pass.</p></div><div class="faq"><b>Q: How is BMI calculated?</b><p>BMI = weight in kg divided by height in metres squared. For example, 70 kg at 1.75 m gives 70 ÷ (1.75 × 1.75) = 22.9, which is normal.</p></div><div class="faq"><b>Q: Is BMI accurate for athletes?</b><p>Not always. Muscle weighs more than fat, so a muscular person can score as overweight or obese while being very fit. BMI is a screening number, not a body-fat measurement.</p></div><div class="faq"><b>Q: Can children use this calculator?</b><p>The formula works, but the adult categories do not apply to children and teenagers. For ages 2–19, BMI is judged against age- and sex-specific percentile charts — ask a paediatrician.</p></div><div class="faq"><b>Q: What weight should I aim for?</b><p>The calculator shows your healthy weight range — the weights that put your BMI between 18.5 and 24.9 for your height. Aim inside that range rather than at one exact number.</p></div><div class="faq"><b>Q: Does BMI change with age?</b><p>The formula does not include age, but its meaning shifts: after about 65, muscle loss makes a slightly higher BMI less worrying, and strength and mobility matter more than the band.</p></div></div></div>
+<footer class="site">
+<div style="max-width:1000px;margin:0 auto 22px;text-align:left">
+<h2 style="color:#fff;font-size:19px;margin-bottom:10px">Free Tools</h2>
+<p style="line-height:2"><a href="/age-calculator.html">Age Calculator</a> · <a href="/compress-image-to-kb.html">Compress Image to KB</a> · <a href="/image-compressor.html">Image Compressor</a> · <a href="/passport-size-photo-maker.html">Passport Size Photo Maker</a> · <a href="/marks-percentage-calculator.html">Marks Percentage Calculator</a> · <a href="/percentage-calculator.html">Percentage Calculator</a> · <a href="/password-generator.html">Password Generator</a> · <a href="/qr-code-generator.html">QR Code Generator</a> · <a href="/word-counter.html">Word Counter</a> · <a href="/emi-calculator.html">EMI Calculator</a> · <a href="/date-difference-calculator.html">Date Difference Calculator</a> · <a href="/bmi-calculator.html">BMI Calculator</a> · <a href="/currency-converter.html">Currency Converter</a> · <a href="/zakat-calculator.html">Zakat Calculator</a> · <a href="/unit-converter.html">Unit Converter</a> · <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> · <a href="/image-resizer.html">Image Resizer</a></p>
+<p style="margin-top:10px;line-height:2"><b style="color:#fff">Guides:</b> <a href="/how-to-compress-photo-to-exact-kb.html">Compress a Photo to an Exact KB Size</a> · <a href="/how-to-make-passport-photo-at-home.html">Make a Passport Photo at Home</a> · <a href="/how-emi-is-calculated.html">How EMI Is Calculated</a> · <a href="/how-to-create-a-strong-password.html">Create a Strong Password</a> · <a href="/how-to-calculate-percentage-from-marks.html">Calculate Percentage from Marks</a></p>
+</div>
+<p><b style="color:#fff">SSToolHub</b> — Free Online Tools — Fast, Private, No Sign-Up</p>
+<p style="margin-top:8px"><a href="/about.html">About</a>·<a href="/privacy-policy.html">Privacy Policy</a>·<a href="/terms.html">Terms of Use</a>·<a href="/disclaimer.html">Disclaimer</a>·<a href="/contact.html">Contact</a></p>
+<p style="margin-top:8px;color:#8fb8a6">Every tool runs in your browser. Your files and data never leave your device.</p>
+<p style="margin-top:8px;color:#8fb8a6;font-size:13px">Featured on <a href="https://fazier.com" target="_blank" rel="noopener" style="color:#8fb8a6;margin:0;text-decoration:underline">Fazier</a></p>
+</footer>
+<script>
+ document.getElementById('bmiUnit').addEventListener('change',e=>{
+   const m=e.target.value==='metric';
+   document.getElementById('metricBox').style.display=m?'block':'none';
+   document.getElementById('impBox').style.display=m?'none':'block';});
+ function calcBmi(){
+   const res=document.getElementById('res');
+   const metric=document.getElementById('bmiUnit').value==='metric';
+   let kg,m;
+   if(metric){
+     kg=parseFloat(document.getElementById('wKg').value);
+     const cm=parseFloat(document.getElementById('hCm').value);
+     if(!(kg>0)||!(cm>0)){res.className='result show';res.innerHTML='Please enter your weight and height.';return;}
+     m=cm/100;
+   }else{
+     const lb=parseFloat(document.getElementById('wLb').value);
+     const ft=parseFloat(document.getElementById('hFt').value)||0;
+     const inch=parseFloat(document.getElementById('hIn').value)||0;
+     if(!(lb>0)||!((ft*12+inch)>0)){res.className='result show';res.innerHTML='Please enter your weight and height.';return;}
+     kg=lb*0.45359237; m=(ft*12+inch)*0.0254;
+   }
+   const bmi=kg/(m*m);
+   let cat='';
+   if(bmi<18.5){cat='Underweight';}
+   else if(bmi<25){cat='Normal';}
+   else if(bmi<30){cat='Overweight';}
+   else{cat='Obese';}
+   const lo=(18.5*m*m).toFixed(1), hi=(24.9*m*m).toFixed(1);
+   const f=x=>Math.round(x*10)/10;
+   res.className='result show';
+   res.innerHTML='<div class="big">BMI: '+f(bmi)+' — '+cat+'</div><table>'+
+   '<tr><td>Your weight</td><td>'+f(kg)+' kg</td></tr>'+
+   '<tr><td>Healthy weight range</td><td>'+lo+' – '+hi+' kg</td></tr>'+
+   '<tr><td>Category</td><td>'+cat+'</td></tr></table>'+
+   '<p class="small" style="margin-top:8px">For general information only — not a medical diagnosis. South Asian adults may face increased risk from BMI 23 onwards; ask a doctor if you are near a boundary.</p>';}
+ </script>
+</body>
+</html>
